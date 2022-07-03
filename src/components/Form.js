@@ -2,10 +2,13 @@ import React from "react";
 
 const Form = () => {
   return (
-    <form className="w-1/2 pt-40 relative ">
-      <div className="text-right pr-16 py-16 text-white">
-        <div>
-          <label htmlFor="itemName" className="w-1/4 text-left text-xl">
+    <form className="w-full md:w-1/2 pt-40 mt-10 md:mt-0 relative border-b md:border-b-0">
+      <div className="lg:text-right lg:pr-16 py-16 text-white">
+        <div className="mb-3">
+          <label
+            htmlFor="itemName"
+            className="w-36  px-4 xl:w-1/4 text-left text-xl "
+          >
             Item name
           </label>
           <input
@@ -15,8 +18,11 @@ const Form = () => {
             type="text"
           />
         </div>
-        <div>
-          <label htmlFor="quantity" className="w-1/4 text-left text-xl">
+        <div className="mb-3">
+          <label
+            htmlFor="quantity"
+            className="w-36 px-4 xl:w-1/4 text-left text-xl"
+          >
             Quantity
           </label>
           <input
@@ -26,8 +32,11 @@ const Form = () => {
             placeholder="Quantity"
           />
         </div>
-        <div>
-          <label htmlFor="price" className="w-1/4 text-left text-xl">
+        <div className="mb-3">
+          <label
+            htmlFor="price"
+            className="w-36 px-4 xl:w-1/4 text-left text-xl"
+          >
             Price
           </label>
           <input
@@ -38,7 +47,7 @@ const Form = () => {
           />
         </div>
 
-        <div className="mt-8 text-right">
+        <div className="mt-8 mr-12 md:mr-12 lg:mr-1 xl:mr-0 text-right">
           <button className="border py-2 px-4 rounded hover:cursor-pointer hover:bg-gray-200 hover:text-black">
             Add to List
           </button>

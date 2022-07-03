@@ -8,7 +8,7 @@ const DUMMY_LIST = [
 
 const ShopList = () => {
   return (
-    <div className="w-1/2 border relative h-screen py-40 px-10 text-white overflow-y-scroll">
+    <div className="w-full md:w-1/2 md:border relative h-screen py-40 px-10 text-white overflow-y-scroll mt-32 md:mt-0">
       <ul className="p-0">
         {DUMMY_LIST.map((list) => (
           <ShopItem

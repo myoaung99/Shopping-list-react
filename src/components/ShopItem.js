@@ -8,15 +8,17 @@ const ShopItem = (props) => {
         <h1>{name}</h1>
         <div>
           <span>$ {price}</span>
-          <span className="ml-24 border px-3">x{quantity}</span>
+          <span className="ml-12 md:ml-14 lg:ml-24 border px-3">
+            x{quantity}
+          </span>
         </div>
       </div>
 
-      <div className="">
+      <div className="flex flex-col">
         <button className="border-2 py-1 px-4 font-bold  hover:bg-white hover:text-black">
           -
         </button>
-        <button className="ml-4 border-2 py-1 px-4 font-bold hover:bg-white hover:text-black">
+        <button className="mt-2 md:mt-2  border-2 py-1 px-4 font-bold hover:bg-white hover:text-black">
           +
         </button>
       </div>
