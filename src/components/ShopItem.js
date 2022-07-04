@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ShoppingListContext } from "../store/shop-list-context";
 
 const ShopItem = (props) => {
-  const { id, name, price, quantity } = props;
+  const shopCtx = useContext(ShoppingListContext);
+  const { list } = props;
+  const { id, name, price, quantity } = list;
+
+  const addShopItemHandler = () => {
+    shopCtx.addItem({ ...list, quantity: 1 });
+  };
+
+  const removeShopItemHandler = () => {
+    shopCtx.removeItem(id);
+  };
   return (
     <li className="flex items-end justify-between border-b py-3">
       <div className="">
@@ -15,10 +26,16 @@ const ShopItem = (props) => {
       </div>
 
       <div className="flex flex-col">
-        <button className="border-2 py-1 px-4 font-bold  hover:bg-white hover:text-black">
+        <button
+          onClick={removeShopItemHandler}
+          className="border-2 py-1 px-4 font-bold  hover:bg-white hover:text-black"
+        >
           -
         </button>
-        <button className="mt-2 md:mt-2  border-2 py-1 px-4 font-bold hover:bg-white hover:text-black">
+        <button
+          onClick={addShopItemHandler}
+          className="mt-2 md:mt-2  border-2 py-1 px-4 font-bold hover:bg-white hover:text-black"
+        >
           +
         </button>
       </div>

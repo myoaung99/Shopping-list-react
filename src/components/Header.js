@@ -4,7 +4,7 @@ import { ShoppingListContext } from "./../store/shop-list-context";
 const Header = () => {
   const shopCtx = useContext(ShoppingListContext);
   const items = shopCtx.listItems;
-  let itemAmount;
+  let itemAmount = 0;
 
   if (items && items.length > 0) {
     itemAmount = items.reduce((total, item) => total + item.quantity, 0);

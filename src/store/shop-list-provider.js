@@ -69,13 +69,20 @@ const reducer = (state, { type, payload }) => {
   }
 
   if (type === "INITIAL") {
-    const sum = payload.map((item) => item.price * item.quantity);
-    const initialTotal = sum.reduce((total, num) => total + parseFloat(num), 0);
-    console.log(initialTotal);
-    return {
-      items: payload,
-      totalAmount: initialTotal,
-    };
+    if (payload && payload.length > 0) {
+      const sum = payload.map((item) => item.price * item.quantity);
+      const initialTotal = sum.reduce(
+        (total, num) => total + parseFloat(num),
+        0
+      );
+      console.log(initialTotal);
+      return {
+        items: payload,
+        totalAmount: initialTotal,
+      };
+    }
+
+    return initialShopList;
   }
 };
 

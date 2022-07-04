@@ -40,30 +40,28 @@ function App() {
   // update to database
   useEffect(() => {
     const putItems = async () => {
-      if (items.length) {
-        const sendHttp = async () => {
-          const res = await fetch(
-            "https://shop-list-eaeb7-default-rtdb.firebaseio.com/shop-list.json",
-            {
-              method: "PUT",
-              body: JSON.stringify(items),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
-
-          if (!res.ok) {
-            throw new Error(res.errorText || "Something went wrong");
+      const sendHttp = async () => {
+        const res = await fetch(
+          "https://shop-list-eaeb7-default-rtdb.firebaseio.com/shop-list.json",
+          {
+            method: "PUT",
+            body: JSON.stringify(items),
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
+        );
 
-          return res.json();
-        };
-        try {
-          await sendHttp();
-        } catch (error) {
-          console.log(error.message);
+        if (!res.ok) {
+          throw new Error(res.errorText || "Something went wrong");
         }
+
+        return res.json();
+      };
+      try {
+        await sendHttp();
+      } catch (error) {
+        console.log(error.message);
       }
     };
 

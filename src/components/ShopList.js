@@ -11,13 +11,7 @@ const ShopList = () => {
     <div className="w-full md:w-1/2 md:border relative h-screen py-28 px-10 text-white overflow-y-scroll mt-32 md:mt-0">
       <ul className="p-0">
         {itemsList.map((list) => (
-          <ShopItem
-            key={list.id}
-            id={list.id}
-            name={list.name}
-            price={list.price}
-            quantity={list.quantity}
-          />
+          <ShopItem key={list.id} list={list} />
         ))}
       </ul>
 
