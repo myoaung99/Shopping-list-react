@@ -29,8 +29,8 @@ const ShopItemForm = () => {
         .required("Required"),
     }),
     onSubmit: (value) => {
-      console.log(value);
       addItemHandler(value);
+      formik.resetForm();
     },
   });
 
