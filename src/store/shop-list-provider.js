@@ -38,12 +38,48 @@ const reducer = (state, { type, payload }) => {
       totalAmount: updatedTotalAmount,
     };
   }
+
+  if (type === "REMOVE") {
+    const removingShopItemIndex = state.items.findIndex(
+      (item) => item.id === payload
+    );
+
+    const removingShopItem = state.items[removingShopItemIndex];
+
+    const updatedTotalAmount = state.totalAmount - removingShopItem.price;
+
+    let updatedItems;
+
+    if (removingShopItem.quantity === 1) {
+      updatedItems = state.items.filter((item) => item.id !== payload);
+    } else {
+      const updatedRemovingShopItem = {
+        ...removingShopItem,
+        quantity: removingShopItem.quantity - 1,
+      };
+
+      updatedItems = [...state.items];
+      updatedItems[removingShopItemIndex] = updatedRemovingShopItem;
+    }
+
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount,
+    };
+  }
 };
 
 const ShoppingListProvider = (props) => {
-  const [shopList, setShopList] = useReducer(reducer, initialShopList);
-  const addItemHandler = (item) => {};
-  const removeItemHandler = (id) => {};
+  const [shopList, dispatchShopList] = useReducer(reducer, initialShopList);
+
+  const addItemHandler = (item) => {
+    dispatchShopList({ type: "ADD", payload: item });
+  };
+
+  const removeItemHandler = (id) => {
+    dispatchShopList({ type: "REMOVE", payload: id });
+  };
+
   const shopListValue = {
     listItems: shopList.items,
     totalAmount: shopList.totalAmount,
