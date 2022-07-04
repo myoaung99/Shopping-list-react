@@ -2,10 +2,7 @@ import React, { useReducer } from "react";
 import { ShoppingListContext } from "./shop-list-context";
 
 const initialShopList = {
-  items: [
-    { id: "i1", name: "Sushi", price: 22.99, quantity: 2 },
-    { id: "i2", name: "Cake", price: 12.99, quantity: 1 },
-  ],
+  items: [],
   totalAmount: 0,
 };
 
@@ -70,6 +67,16 @@ const reducer = (state, { type, payload }) => {
       totalAmount: updatedTotalAmount,
     };
   }
+
+  if (type === "INITIAL") {
+    const sum = payload.map((item) => item.price * item.quantity);
+    const initialTotal = sum.reduce((total, num) => total + parseFloat(num), 0);
+    console.log(initialTotal);
+    return {
+      items: payload,
+      totalAmount: initialTotal,
+    };
+  }
 };
 
 const ShoppingListProvider = (props) => {
@@ -83,10 +90,15 @@ const ShoppingListProvider = (props) => {
     dispatchShopList({ type: "REMOVE", payload: id });
   };
 
+  const addInitialItemsHandler = (items) => {
+    dispatchShopList({ type: "INITIAL", payload: items });
+  };
+
   const shopListValue = {
     listItems: shopList.items,
     totalAmount: shopList.totalAmount,
     addItem: addItemHandler,
+    addInitialItems: addInitialItemsHandler,
     removeItem: removeItemHandler,
   };
   return (

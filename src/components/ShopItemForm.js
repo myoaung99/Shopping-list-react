@@ -9,6 +9,7 @@ const ShopItemForm = () => {
     const { itemName: name, itemQuantity: quantity, itemPrice: price } = item;
     shopCtx.addItem({ id: Math.random(), name, quantity, price });
   };
+
   const formik = useFormik({
     initialValues: {
       itemName: "",
