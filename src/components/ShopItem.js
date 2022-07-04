@@ -3,10 +3,10 @@ import React from "react";
 const ShopItem = (props) => {
   const { id, name, price, quantity } = props;
   return (
-    <li className="flex items-center justify-between  border-b py-3">
-      <div>
-        <h1>{name}</h1>
-        <div>
+    <li className="flex items-end justify-between border-b py-3">
+      <div className="">
+        <h1 className="text-3xl">{name}</h1>
+        <div className="mt-4  w-36 md:w-40 lg:w-48 flex justify-between items-end">
           <span>$ {price}</span>
           <span className="ml-12 md:ml-14 lg:ml-24 border px-3">
             x{quantity}

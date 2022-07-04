@@ -2,7 +2,10 @@ import React, { useReducer } from "react";
 import { ShoppingListContext } from "./shop-list-context";
 
 const initialShopList = {
-  items: [],
+  items: [
+    { id: "i1", name: "Sushi", price: 22.99, quantity: 2 },
+    { id: "i2", name: "Cake", price: 12.99, quantity: 1 },
+  ],
   totalAmount: 0,
 };
 
