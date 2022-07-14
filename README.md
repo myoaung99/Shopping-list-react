@@ -16,3 +16,5 @@ Make a List (Cart system liked Shopping List App)
 Item များကို cart အတွင်းမှာပဲ အတိုးအလျှော့လုပ်လို့ရသလို့ total amount ဟာလည်း reactive ဖြစ်ပါတယ်
 
 Data fetching အတွက် react-query ကို သုံးထားတဲ့အတွက် state တွေအများကြီး သုံးစရာမလိုတော့ပါဘူး
+
+Form validation အတွက်လည်း formik နဲ့ yup ကို သုံးထားတာကြောင့် focus, blur စတဲ့ state အမျိုးမျိုးအတွက် မတူတဲ့ form validation များကို လုပ်ဆောင်နိုင်မှာ ဖြစ်ပါတယ်
